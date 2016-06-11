@@ -110,6 +110,10 @@ public class Sessao {
 		 return getPreco().multiply(BigDecimal.valueOf(porcentagem / 100));
 	}
 	
+//	public BigDecimal calcularPrecoUltimosIngressos(double porcentagemParaAcabar, double porcentagemAumento) {
+//		
+//	}
+	
 	public void reserva(Integer numeroDeIngressos) {
 		// soma quantidade na variavel ingressos reservados
 		this.ingressosReservados += numeroDeIngressos;
