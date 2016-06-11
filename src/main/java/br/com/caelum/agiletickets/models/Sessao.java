@@ -91,6 +91,21 @@ public class Sessao {
 		return totalIngressos - ingressosReservados;
 	}
 
+	/**
+	 * Verifica se a quantidade de ingressos restantes esta dentro da porcentagem informada.
+	 * 
+	 * @param porcentagem de 0 a 100
+	 * @return true 
+	 */
+	public boolean isUltimosIngressos(double porcentagem) {
+		double porcentagemRestante = getIngressosDisponiveis() / getTotalIngressos().doubleValue() * 100;
+		return  porcentagemRestante <= porcentagem;
+	}
+	
+	public BigDecimal getPrecoAumentado(double porcentagem) {
+		 return getPreco().add(getPreco().multiply(BigDecimal.valueOf(porcentagem / 100)));
+	}
+	
 	public void reserva(Integer numeroDeIngressos) {
 		// soma quantidade na variavel ingressos reservados
 		this.ingressosReservados += numeroDeIngressos;
