@@ -103,7 +103,11 @@ public class Sessao {
 	}
 	
 	public BigDecimal getPrecoAumentado(double porcentagem) {
-		 return getPreco().add(getPreco().multiply(BigDecimal.valueOf(porcentagem / 100)));
+		 return getPreco().add(calculaAcrescimo(porcentagem));
+	}
+	
+	public BigDecimal calculaAcrescimo(double porcentagem) {
+		 return getPreco().multiply(BigDecimal.valueOf(porcentagem / 100));
 	}
 	
 	public void reserva(Integer numeroDeIngressos) {

@@ -30,7 +30,7 @@ public class CalculadoraDePrecos {
 			}
 			
 			if(sessao.getDuracaoEmMinutos() > 60){
-				preco = preco.add(sessao.getPreco().multiply(BigDecimal.valueOf(0.10)));
+				preco = preco.add(sessao.calculaAcrescimo(DEZ_POR_CENTO));
 			}
 		} else if(sessao.getEspetaculo().getTipo().equals(TipoDeEspetaculo.ORQUESTRA)) {
 			if(sessao.getIngressosDisponiveis() / sessao.getTotalIngressos().doubleValue() <= 0.50) { 
@@ -40,7 +40,7 @@ public class CalculadoraDePrecos {
 			}
 
 			if(sessao.getDuracaoEmMinutos() > 60){
-				preco = preco.add(sessao.getPreco().multiply(BigDecimal.valueOf(0.10)));
+				preco = preco.add(sessao.calculaAcrescimo(DEZ_POR_CENTO));
 			}
 		}  else {
 			//nao aplica aumento para teatro (quem vai é pobretão)

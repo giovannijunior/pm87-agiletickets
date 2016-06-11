@@ -133,6 +133,22 @@ public class CalculadoraDePrecosTest {
 	}
 	
 	@Test
+	public void deveAplicarAumentoSeForUltimosIngressosEDurarMaisDeUmaHoraQuandoForBallet(){
+		Sessao sessao =	SessaoTestDataBuilder
+				.umaSessao()
+				.deUmEspetaculoDoTipo(TipoDeEspetaculo.BALLET)
+				.comTotalIngressos(50)
+				.comIngressoReservados(49)
+				.comOPreco(500.0)
+				.comDuracaoEmMinutos(100)
+				.build();
+
+		BigDecimal precoTotal = CalculadoraDePrecos.calcula(sessao, 1);
+		
+		assertEquals(0, BigDecimal.valueOf(650.0).compareTo(precoTotal));
+	}
+	
+	@Test
 	public void deveAplicar20PorCentoAMaisNosUltimosIngressosQuandoForOrquestra(){
 		Sessao sessao =	SessaoTestDataBuilder
 				.umaSessao()
