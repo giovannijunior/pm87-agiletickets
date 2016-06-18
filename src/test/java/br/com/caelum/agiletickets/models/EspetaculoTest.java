@@ -87,6 +87,11 @@ public class EspetaculoTest {
 		assertEquals(sessoes.get(0).getDia(), "11/6/2016");
 	}
 
+	@Test
+	public void deveFalharDeProposito() {
+		fail("Teste falhando de proposito para testar Jenkins");
+	}
+	
 	private Sessao sessaoComIngressosSobrando(int quantidade) {
 		Sessao sessao = new Sessao();
 		sessao.setTotalIngressos(quantidade * 2);
